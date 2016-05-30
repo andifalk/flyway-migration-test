@@ -1,0 +1,6 @@
+*.class
+*.jar
+hs_err_pid*
+/flyway-migration-test.iml
+/test.mv.db
+/.idea
