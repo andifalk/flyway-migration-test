@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="PERSON">
+        <column>id</column>
+        <column>lastname</column>
+        <column>firstname</column>
+        <column>birthdate</column>
+        <row>
+            <value>1000</value>
+            <value>Mustermann</value>
+            <value>Hans</value>
+            <value>1969-10-11</value>
+        </row>
+        <row>
+            <value>1001</value>
+            <value>Mustermann</value>
+            <value>Heinz</value>
+            <value>2000-07-02</value>
+        </row>
+        <row>
+            <value>1002</value>
+            <value>Porsche</value>
+            <value>Ferdinand</value>
+            <value>2014-01-02</value>
+        </row>
+        <row>
+            <value>1003</value>
+            <value>Gomez</value>
+            <value>Mario</value>
+            <value>1972-10-02</value>
+        </row>
+    </table>
+</dataset>
