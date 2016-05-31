@@ -6,7 +6,6 @@ import static org.junit.Assert.assertThat;
 
 import org.flywaydb.core.Flyway;
 import org.flywaydb.core.api.MigrationInfoService;
-import org.flywaydb.core.api.callback.FlywayCallback;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,19 +19,19 @@ public abstract class AbstractDatabaseMigrationTest {
     private Flyway flyway;
 
     /**
-     * Create the test case
+     * Create the test case.
      *
      * @throws Exception is not expected
      */
     public AbstractDatabaseMigrationTest() throws Exception {
         super();
-        this.flyway = getFlyway ();
+        this.flyway = getFlyway();
     }
-    
+
     @Before
-    public void setup() {
-        this.flyway.setCallbacks ();
-        this.flyway.clean ();
+    public final void setup() {
+        this.flyway.setCallbacks();
+        this.flyway.clean();
     }
 
     /**
@@ -42,14 +41,14 @@ public abstract class AbstractDatabaseMigrationTest {
     @Test
     public void verifyDatabaseMigrationsWithoutData() throws Exception {
 
-        MigrationInfoService info = this.flyway.info ();
-        int pendingMigrations = info.pending ().length;
-        assertThat ( "Should have zero applied migrations before running the test", info.applied ().length, is ( 0 ) );
-        assertThat ( "Should have at least one pending migration before running the test", pendingMigrations, is ( greaterThan ( 0 ) ) );
-        this.flyway.migrate ();
-        info = this.flyway.info ();
-        assertThat ( "Should have expected applied migrations after running the test", info.applied ().length, is ( pendingMigrations ) );
-        assertThat ( "Should have at no pending migration after running the test", info.pending ().length, is ( 0 ) );
+        MigrationInfoService info = this.flyway.info();
+        int pendingMigrations = info.pending().length;
+        assertThat( "Should have zero applied migrations before running the test", info.applied ().length, is ( 0 ) );
+        assertThat( "Should have at least one pending migration before running the test", pendingMigrations, is ( greaterThan ( 0 ) ) );
+        this.flyway.migrate();
+        info = this.flyway.info();
+        assertThat( "Should have expected applied migrations after running the test", info.applied ().length, is ( pendingMigrations ) );
+        assertThat( "Should have at no pending migration after running the test", info.pending ().length, is ( 0 ) );
     }
 
 
